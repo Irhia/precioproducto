@@ -17,8 +17,24 @@ class CategoryController extends Controller
   }
 
   public function insertar (Request $request) {
-  	//Alta de una nueva categoría
 
+
+    //Alta de una nueva categoria:
+      //Comprobar que vienen los campos y con el formato adecuado:
+      $reglas=['nombre' => 'required|unique:categories|max:255'];
+     
+      $msgs=[
+        'required' => 'Nombre requerido',
+        'unique' => 'Ya existe la categoría',
+        'max' => 'Máximo 255 chars'];
+     
+      //Si algo no se cumple vuelve al formulario y lleva lista de errores ($errors)
+    $this->validate($request,$reglas,$msgs);
+    //$this->validate($request,$reglas,$msgs);
+  	
+    //Alta de una nueva categoría
+
+    //Crear el objeto
   	$categoria = new Category();
   	$categoria->nombre = $request->nombre;
   	$categoria->save();
@@ -26,4 +42,11 @@ class CategoryController extends Controller
   return redirect()-> route ('categorias.listar');
   }
 
+
+  public function eliminar ($id) {
+
+    $categoria = Category::find($id);
+    $categoria->delete();
+    return redirect()-> route ('categorias.listar');
+  }
 }

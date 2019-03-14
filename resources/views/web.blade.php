@@ -25,11 +25,11 @@
                     <div class="row">
                         
                         <label for="nombre">
-                        <input type="text" name="nombre" style="width: 100px" class="form-control" placeholder="Usuario">
+                        <input type="text" name="nombre" style="width: 100px" class="form-control" placeholder="mediamarkt">
                         </label>
                         
                         <label for="url"></label>
-                        <input type="text" name="url"  style="width: 100px" class="form-control" placeholder="Usuario">
+                        <input type="text" name="url"  style="width: 100px" class="form-control" placeholder="www.mediamarkt.es">
                         
                         <input type="submit" value="Alta">
 
@@ -53,12 +53,35 @@
 
               <tbody>
                 
+                 @isset($errors)
+                    <div class="text-center">
+                      <div class="row">
+                        <div class="col-2"></div>
+                        <div class="col-6">
+                          <ul>
+                          @foreach($errors->all() as $error) 
+                            <li>{{$error}}</li>
+                          @endforeach
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  @endisset
                    @foreach ($lista_webs as $webs)
                     <tr>
                         <th scope="{{$webs->id}}"></th>
                           
-                        <td>{{$webs->nombre}}</td>
+                        <td><input type="text" value="{{$webs->nombre}}"> </td>
                         <td>{{$webs->url}}</td>
+                        <td>
+                          <a href="{{url('web_editar/'.$webs->id)}}"> 
+                                    <img src="{{url('image/edit.jpg')}}" height="25px;">
+                                  </a> 
+                          <a href="{{url('web_eliminar/'.$webs->id)}}"> 
+                                    <img src="{{url('image/delete.png')}}" height="25px;">
+                                  </a> 
+                        </a>
+                      </td>
                     </tr>
                   @endforeach
                

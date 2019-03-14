@@ -31,6 +31,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('categoria', 'CategoryControlleR@listar') -> name('categorias.listar');
 Route::post ('categoria', 'CategoryControlleR@insertar') ->name ('categoria.insertar');
+Route::get('categoria_eliminar/{id}', 'CategoryControlleR@eliminar') -> name ('categorias.eliminar');
+
+
 
 Route::get('web', 'WebControlleR@listar')-> name('web.listar');
 Route::post('web','WebControlleR@insertar') ->name('web.insertar');
+Route::get('web_eliminar/{id}','WebControlleR@eliminar') ->name('web.eliminar');
