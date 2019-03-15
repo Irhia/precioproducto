@@ -44,11 +44,11 @@
                       </div>
                     </div>
                   @endisset
-                        
+                       
                         @foreach ($lista_categoria as $categorias)
-                        	<li> {{$categorias->nombre}}
+                        	<li> <input type="text" value=" {{$categorias->nombre}}" name="nombre">
 
-                                 <a href="{{url('categoria_editar/{{$categorias->id')}} ">
+                                 <a href="{{url('categoria_editar/'.$categorias->id)}} ">
                                     <img src="{{url('image/edit.jpg')}}" height="25px;">
                                   </a>
                                   <a href="{{url('categoria_eliminar/'.$categorias->id)}}"> 
@@ -68,5 +68,20 @@
             </div>
         </div>
     </div>
+
+<script type="text/javascript">
+    /* Son las funciones que sacarán las ventanas modales. */
+
+    function editarCategoria (cat_id, cat_nombre) {
+        $('#editar #form_editar #id').val(cat_id);
+        $('#editar #form_editar #nombre').val(cat_nombre);
+    }
+
+     function eliminarCategoria (cat_id, cat_nombre) {
+        $('#eliminar #form_eliminar #id').val(cat_id);
+        $('#eliminar #form_eliminar #nombre').val(cat_nombre);
+    }
+
+</script>
 
 @endsection

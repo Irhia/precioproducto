@@ -49,4 +49,16 @@ class CategoryController extends Controller
     $categoria->delete();
     return redirect()-> route ('categorias.listar');
   }
+
+  public function editar (Request $request, $id) {
+
+    $nombre_form = $request->input('nombre');
+
+      $categoria = Category::find($id);
+      $categoria->nombre = $nombre_form;
+      $categoria->update();
+
+      return redirect()-> route ('categorias.listar');
+
+  } 
 }
