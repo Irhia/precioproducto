@@ -35,7 +35,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('categoria', 'CategoryControlleR@listar') -> name('categorias.listar');
 Route::post ('categoria', 'CategoryControlleR@insertar') ->name ('categoria.insertar');
 Route::get('categoria_eliminar/{id}', 'CategoryControlleR@eliminar') -> name ('categorias.eliminar');
-Route::get ('categoria_editar/{id}', 'CategoryControlleR@editar') -> name ('categorias.editar');
+Route::get ('categoria_actualizar/{id}', 'CategoryControlleR@actualizar') -> name ('categorias.actualizar');
 
 });
 

@@ -50,15 +50,13 @@ class CategoryController extends Controller
     return redirect()-> route ('categorias.listar');
   }
 
-  public function editar (Request $request, $id) {
+  public function actualizar (Request $request, $id) {
 
-    $nombre_form = $request->input('nombre');
+    $categoria = Category::find($request->id);
+    $categoria->nombre = $request->nombre;
+    $categoria->update();
 
-      $categoria = Category::find($id);
-      $categoria->nombre = $nombre_form;
-      $categoria->update();
-
-      return redirect()-> route ('categorias.listar');
-
+    return redirect()->route('categorias.listar');
   } 
+
 }
