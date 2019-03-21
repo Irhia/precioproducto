@@ -12,7 +12,7 @@ class CategoryController extends Controller
   	/* Como antes hacer un select * from categories*/
   	$categorias=Category::all();
 
-  	return view ('categoria')
+  	return view ('private.categoria')
   		-> with ('lista_categoria', $categorias); 
   }
 

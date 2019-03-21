@@ -12,9 +12,24 @@ class AdController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+
+    public function listar() {
+        //Listar para la zona pública.
+        //Separamos las rutas luego de public o private.
+
+        //obtener de la bbdd la lista de anuncios
+        $ads=Ad::all();
+
+        //Pasamos a la vista el churro
+        return view ('public.anuncios')
+            ->with ('ads', $ads);
+
+    }
+    
     public function index()
     {
-        //
+      
+    
     }
 
     /**

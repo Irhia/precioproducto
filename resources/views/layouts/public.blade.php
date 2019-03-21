@@ -23,7 +23,7 @@
         <ul id="menu">
           <!-- put class="selected" in the li tag for the selected page - to highlight which page you're on -->
           <li class="@yield ('seleccionado1')"><a href="{{url('/')}}">Inicio</a></li>
-          <li class="@yield ('seleccionado2')"><a href="{{url('productos')}}">Productos</a></li>
+          <li class="@yield ('seleccionado2')"><a href="{{url('ads/listar')}}">Anuncios</a></li>
           <li class="@yield ('seleccionado3')"><a href="{{url('contacto')}}">Contacto</a></li>
   
 <!-- Sistema de login--> 

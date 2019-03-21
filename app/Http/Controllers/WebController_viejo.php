@@ -11,7 +11,7 @@ class WebController extends Controller
   	/* Como antes hacer un select * from categories*/
   	$web=Web::all();
 
-  	return view ('web')
+  	return view ('private.web')
   		-> with ('lista_webs', $web); 
   }
 

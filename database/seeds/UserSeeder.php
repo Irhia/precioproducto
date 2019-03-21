@@ -12,6 +12,8 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
+
+        //Creo 1 usaurio fijo y específico
         User::create ([
         'name' => 'Bea',
         'email' => 'bhc@gmail.com',
@@ -21,5 +23,10 @@ class UserSeeder extends Seeder
         'remember_token' => Str::random(10),
 
         ]);
+
+
+        //Invento 5 usuarios a boleo
+        factory(App\User::class,5)->create();
+
     }
 }

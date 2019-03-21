@@ -19,5 +19,8 @@ class CategoriesSeeder extends Seeder
         Category::create (['nombre'=>'Electrónica']);
         Category::create (['nombre'=>'Telefonía']);
     
+     //Invento 10 webs a boleo
+    //factory(App\Category::class,10)->create();
+
     }
 }

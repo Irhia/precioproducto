@@ -25,5 +25,22 @@ class AdsSeeder extends Seeder
        		'precio_alto' => '1100',
 
        	]);
+
+        Ad::create([
+
+          'category_id' => '3',
+          'web_id' =>  '3',
+          'user_id' => '1',
+          'title' => 'Samsung Galaxy S9+',
+          'url' => 'https://www.mediamarkt.es/es/product/_m%C3%B3vil-samsung-galaxy-s9-6-2-curva-super-amoled-octa-core-64-gb-6-gb-ram-12-12-mp-violeta-1398572.html',
+
+          'foto' => 'https://picscdn.redblue.de/doi/pixelboxx-mss-79123948/fee_786_587_png/M%C3%B3vil---Samsung-Galaxy-S9---6.2--Curva-Super-AMOLED--Octa-Core--64-GB--6-GB-RAM--12---12-MP--Violeta',
+          'precio_vta' => '599',
+          'precio_chollo' => '499',
+          'precio_alto' => '850',
+
+        ]);
+
+       factory(App\Ad::class,10)->create();
     }
 }

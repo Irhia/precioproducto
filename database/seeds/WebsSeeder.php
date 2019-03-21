@@ -16,5 +16,8 @@ class WebsSeeder extends Seeder
      Web::create(['nombre' => 'Wallapop']);
      Web::create(['nombre' => 'Mediamarkt', 'url' => 'https://www.mediamarkt.es/' ]);
     
+     //Invento 10 webs a boleo
+    factory(App\Web::class,10)->create();
     }
+
 }
