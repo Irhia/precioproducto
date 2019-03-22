@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Ad;
+use App\Category;
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -13,23 +14,36 @@ class AdController extends Controller
      * @return \Illuminate\Http\Response
      */
 
-    public function listar() {
+    public function listar(Request $request) {
         //Listar para la zona pública.
         //Separamos las rutas luego de public o private.
 
-        //obtener de la bbdd la lista de anuncios
-        $ads=Ad::all();
+        if (!isset($request->cats))
+            //obtener de la bbdd la lista de anuncios
+            $ads=Ad::paginate(8);
+                     
 
-        //Pasamos a la vista el churro
+        else {
+           //Sólo quiero los ads de la category_id indicada
+            $category = Category::find($request->cats);
+            $ads = $category -> ads()->paginate(2);
+        }
+
+        //dd($ads);
+
+        $cats = Category::all();
+
+
         return view ('public.anuncios')
-            ->with ('ads', $ads);
+      -> with ('cats', $cats)
+      -> with ('ads', $ads);
 
     }
     
     public function index()
     {
       
-    
+ 
     }
 
     /**

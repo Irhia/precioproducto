@@ -10,4 +10,8 @@ class Category extends Model
    protected $fillable = [
         'nombre'
     ];
+
+    public function ads (){
+		return $this->hasMany('App\Ad');
+	}
 }

@@ -29,9 +29,9 @@ $factory->define(Ad::class, function (Faker $faker) {
           'title' => $faker->company,
           'url' => $faker->url,
 
-          'foto' => $faker->url,
-          'precio_vta' => '599',
-          'precio_chollo' => '499',
-          'precio_alto' => '850',
+          'foto' => $faker->imageUrl($width=300, $height=300),
+          'precio_vta' => $faker->numberBetween(1000,4000),
+          'precio_chollo' => $faker->numberBetween(500,2000),
+          'precio_alto' => $faker->numberBetween(3000,5000),
     ];
 });

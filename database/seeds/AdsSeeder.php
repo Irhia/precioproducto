@@ -41,6 +41,6 @@ class AdsSeeder extends Seeder
 
         ]);
 
-       factory(App\Ad::class,10)->create();
+       factory(App\Ad::class,1000)->create();
     }
 }

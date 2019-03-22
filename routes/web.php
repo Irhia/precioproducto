@@ -21,6 +21,8 @@ Route::get('/', function () {
 
 //Listar los anuncios.
 Route::get ('ads/listar', 'AdController@listar');
+Route::post('ads/listar', 'AdController@listar');
+
 
 
 Route::get ('contacto', function(){
