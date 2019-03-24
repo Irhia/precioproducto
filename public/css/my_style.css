@@ -9,4 +9,4 @@ h4{text-align: center; color: blue; font-style: bold;}
 		margin-left: 170px;}
 #tabla { width: 800px; height: 300px; border: 4px dotted grey; position: relative;  }
 
-#tabla_cat{display: inline-block;}
+#caja_anuncio { margin:15px;}

@@ -12,6 +12,7 @@ class WebsSeeder extends Seeder
      */
     public function run()
     {
+        
      Web::create(['nombre' => 'Ebay', 'url'=>'http://www.ebay.es']);
      Web::create(['nombre' => 'Wallapop']);
      Web::create(['nombre' => 'Mediamarkt', 'url' => 'https://www.mediamarkt.es/' ]);

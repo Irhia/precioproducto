@@ -89,7 +89,7 @@ ol li
 #header
 { background: #1d1d1d url(pattern.png) repeat;
   border-bottom: 2px solid #E7746F;
-  height: 177px;}
+  height: 165px;}
   
 #banner
 { background: transparent url(..\css\banner.jpg) no-repeat;
@@ -134,7 +134,7 @@ ol li
 
 #menubar
 { width: 880px;
-  height: 46px;} 
+  height: 55px;} 
 
 ul#menu
 { float: right;
@@ -159,8 +159,8 @@ ul#menu li a
   background: transparent;} 
 
 ul#menu li.selected a
-{ height: 20px;
-  padding: 6px 35px 5px 28px;}
+{
+  padding: 6px 35px 0 28px;}
 
 ul#menu li.selected
 { margin: 1px 2px 0 0;
@@ -175,14 +175,18 @@ ul#menu li a:hover
   background: #E7746F;}
 
 #site_content
-{ width: 880px;
+{ /*border: 2px solid purple;*/
+  width: 1380px;
   overflow: hidden;
-  margin: 20px auto 0 auto;
+  margin: 10px auto 0 auto;
+
   padding: 0 0 10px 0;} 
 
 #sidebar_container
-{ float: right;
-  width: 224px;}
+{/* border: 2px dotted pink; */
+  padding: 0 0 -10px 0 ;
+  float: right;
+  width: 250px;}
 
 .sidebar_top
 { width: 222px;
@@ -198,7 +202,7 @@ ul#menu li a:hover
 { float: right;
   width: 222px;
   padding: 0;
-  margin: 0 0 16px 0;}
+  margin: 0 0 5px 0;}
 
 .sidebar_item
 { background: url(side_back.png) repeat-y;
@@ -213,7 +217,7 @@ ul#menu li a:hover
 
 #content
 { text-align: left;
-  width: 620px;
+  width:1100px;
   padding: 0 0 0 5px;
   float: left;
   position:absolute;

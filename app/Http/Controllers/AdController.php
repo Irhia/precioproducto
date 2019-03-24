@@ -20,7 +20,7 @@ class AdController extends Controller
 
         if (!isset($request->cats))
             //obtener de la bbdd la lista de anuncios
-            $ads=Ad::paginate(8);
+            $ads=Ad::paginate(4);
                      
 
         else {
