@@ -43,7 +43,14 @@ class AdController extends Controller
     public function index()
     {
       
- 
+        //Listar para la zona privada
+         //obtener de la bbdd la lista de anuncios
+            $ads=Ad::paginate(3);
+        
+
+        return view ('private.anuncios')
+              -> with ('ads', $ads);
+
     }
 
     /**
@@ -53,7 +60,19 @@ class AdController extends Controller
      */
     public function create()
     {
-        //
+
+        //Mandar la lista de anuncios para poder
+        //llamar a las funciones de relación de tablas
+        
+
+        //Listar para la zona privada
+         //obtener de la bbdd la lista de anuncios
+            $ads=Ad::all();
+        
+
+        return view ('private.anuncios_insertar')
+              -> with ('ads', $ads);
+
     }
 
     /**
@@ -64,7 +83,31 @@ class AdController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        //La función INSERT
+            //dd($request->nombre);
+
+          //Alta de una nueva anuncio:
+      //Comprobar que vienen los campos y con el formato adecuado:
+      $reglas=['title' => 'required|unique:ads|max:255'];
+     
+      $msgs=[
+        'required' => 'Nombre requerido',
+        'unique' => 'Ya existe la categoría',
+        'max' => 'Máximo 255 chars'];
+     
+      //Si algo no se cumple vuelve al formulario y lleva lista de errores ($errors)
+    $this->validate($request,$reglas,$msgs);
+    //$this->validate($request,$reglas,$msgs);
+    
+    //Alta de un nuevo anuncio
+
+    //Crear el objeto
+    $anuncio = new Ad();
+    $anuncio->title = $request->title;
+    $anuncio->save();
+
+  return redirect()-> route ('ads.index');
     }
 
     /**

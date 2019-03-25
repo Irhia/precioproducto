@@ -52,4 +52,8 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource ('ads','AdController');
 
+	Route::get ('anuncios', function(){
+  return view('private.anuncios_insertar');
+});
+
 });

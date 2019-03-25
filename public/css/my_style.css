@@ -5,8 +5,8 @@ h4{text-align: center; color: blue; font-style: bold;}
 #house {color: red;}
 #titulo {margin-top: 20px;text-align: center;}
 
-#caja_crud { width: 1000px; height: 500px; border: 4px dotted grey; position: relative;
+#caja_crud { width: 1000px; height: 500px; position: relative;
 		margin-left: 170px;}
-#tabla { width: 800px; height: 300px; border: 4px dotted grey; position: relative;  }
+#tabla { width: 800px; height: 300px; position: relative;  }
 
 #caja_anuncio { margin:15px;}

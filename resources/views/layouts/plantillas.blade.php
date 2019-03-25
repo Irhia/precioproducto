@@ -18,6 +18,9 @@
           <li class="nav-item">
             <a class="nav-link disabled" href="#">Disabled</a>
           </li>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{{route('ads.index')}}">Anuncios</a>
 
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true"  aria-expanded="false">Productos</a>
