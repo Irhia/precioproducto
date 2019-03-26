@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use App\Ad;
 use App\Category;
+use App\Web;
+use App\User;
+
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -67,11 +70,12 @@ class AdController extends Controller
 
         //Listar para la zona privada
          //obtener de la bbdd la lista de anuncios
-            $ads=Ad::all();
-        
+            $cats = Category::all();
+            $webs = Web::all();
 
         return view ('private.anuncios_insertar')
-              -> with ('ads', $ads);
+              -> with ('cats', $cats)
+              -> with ('webs', $webs);
 
     }
 
@@ -105,6 +109,16 @@ class AdController extends Controller
     //Crear el objeto
     $anuncio = new Ad();
     $anuncio->title = $request->title;
+    $anuncio->url = $request->url;
+    $anuncio->foto = $request->foto;
+    $anuncio->precio_vta = $request->precio_vta;
+    $anuncio->precio_chollo = $request->precio_chollo;
+    $anuncio->precio_alto = $request->precio_alto;
+
+    $anuncio->category_id = $request->categorias;
+    $anuncio->web_id = $request->webs;
+    $anuncio->user_id = auth()->id();
+
     $anuncio->save();
 
   return redirect()-> route ('ads.index');
@@ -152,6 +166,8 @@ class AdController extends Controller
      */
     public function destroy(Ad $ad)
     {
-        //
+        //Elimina el anuncio
+        $ad->delete();
+        return redirect()-> route('ads.index');
     }
 }

@@ -38,22 +38,19 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 
-	Route::get('categoria', 'CategoryControlleR@listar') -> name('categorias.listar');
-	Route::post ('categoria', 'CategoryControlleR@insertar') ->name ('categoria.insertar');
-	Route::get('categoria_eliminar/{id}', 'CategoryControlleR@eliminar') -> name ('categorias.eliminar');
-	Route::get ('categoria_actualizar/{id}', 'CategoryControlleR@actualizar') -> name ('categorias.actualizar');
+	Route::get('categoria', 'CategoryController@listar') -> name('categorias.listar');
+	Route::post ('categoria', 'CategoryController@insertar') ->name ('categoria.insertar');
+	Route::get('categoria_eliminar/{id}', 'CategoryController@eliminar') -> name ('categorias.eliminar');
+	Route::get ('categoria_actualizar/{id}', 'CategoryController@actualizar') -> name ('categorias.actualizar');
 
 
 	/* La versión que usábamos antes de aprender a hacer Route::resource. */
-	Route::get('web', 'WebControlleR@listar')-> name('web.listar');
-	Route::post('web','WebControlleR@insertar') ->name('web.insertar');
-	Route::get('web_eliminar/{id}','WebControlleR@eliminar') ->name('web.eliminar');
+	Route::get('web', 'WebController@listar')-> name('web.listar');
+	Route::post('web','WebController@insertar') ->name('web.insertar');
+	Route::get('web_eliminar/{id}','WebController@eliminar') ->name('web.eliminar');
 
 
 	Route::resource ('ads','AdController');
 
-	Route::get ('anuncios', function(){
-  return view('private.anuncios_insertar');
-});
-
+	
 });
