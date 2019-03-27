@@ -1,0 +1,19 @@
+User- Roles
+
+Claudio Vallejo
+
+__________________________
+
+Estadísticas
+
+	count(*)
+
+__________________________
+
+API's
+
+getCategorias
+
+getAnuncios
+
+getWebs

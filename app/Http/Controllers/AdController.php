@@ -50,8 +50,11 @@ class AdController extends Controller
          //obtener de la bbdd la lista de anuncios
             $ads=Ad::paginate(3);
         
-
+            $cats = Category::all();
+            $webs = Web::all();
         return view ('private.anuncios')
+              -> with ('cats', $cats)
+              -> with ('webs', $webs)
               -> with ('ads', $ads);
 
     }
@@ -141,9 +144,9 @@ class AdController extends Controller
      * @param  \App\Ad  $ad
      * @return \Illuminate\Http\Response
      */
-    public function edit(Ad $ad)
+    public function edit(Request $request)
     {
-        //
+        
     }
 
     /**
@@ -155,7 +158,20 @@ class AdController extends Controller
      */
     public function update(Request $request, Ad $ad)
     {
-        //
+       $ad->title = $request->title;
+       $ad->category_id = $request->category_id;
+       $ad->web_id = $request->web_id;
+
+
+       $ad->url = $request->url;
+       $ad->foto = $request->foto;
+       $ad->precio_vta = $request->precio_vta;
+       $ad->precio_chollo = $request->precio_chollo;
+       $ad->precio_alto = $request->precio_alto;
+
+       $ad->update();
+
+    return redirect()->route('ads.index');
     }
 
     /**
@@ -169,5 +185,25 @@ class AdController extends Controller
         //Elimina el anuncio
         $ad->delete();
         return redirect()-> route('ads.index');
+    }
+
+    public function estadisticas(){
+
+        //Sacar el listado de estadíticas
+
+        //Obtenemos cuántos anuncios hay.
+        
+
+        $ads_total = DB::table('ad')->get();
+
+        $chollos = DB::table('ad')
+            ->where('precio_chollo', '>', 'precio_vta')
+            ->where('precio_chollo','>', 'precio_alto')
+                ->get();
+
+        return view ('private.estadisticas')
+            ->with('ads_total', $ads_total)
+            ->with('chollos' $chollos);
+
     }
 }
