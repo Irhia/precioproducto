@@ -52,5 +52,7 @@ Route::group(['middleware' => 'auth'], function () {
 
 	Route::resource ('ads','AdController');
 
+	Route::get('estadisticas', 'AdController@estadisticas');
+
 	
 });

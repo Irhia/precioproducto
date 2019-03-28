@@ -7,6 +7,8 @@ use App\Category;
 use App\Web;
 use App\User;
 
+use DB;
+
 use Illuminate\Http\Request;
 
 class AdController extends Controller
@@ -194,16 +196,26 @@ class AdController extends Controller
         //Obtenemos cuántos anuncios hay.
         
 
-        $ads_total = DB::table('ad')->get();
+        $ads_total = DB::table('ads')->count();
 
-        $chollos = DB::table('ad')
-            ->where('precio_chollo', '>', 'precio_vta')
-            ->where('precio_chollo','>', 'precio_alto')
-                ->get();
+        $chollos = DB::table('ads')
+            ->whereColumn('precio_chollo', '>', 'precio_vta')
+             ->count();
+
+        $alto = DB::table('ads')
+                ->whereColumn('precio_alto', '<', 'precio_vta')
+                ->count();
+
+        $correcto = DB::table('ads')
+                ->whereColumn('precio_vta','<=','precio_alto')
+                ->whereColumn('precio_vta', '>','precio_chollo')
+                ->count();
 
         return view ('private.estadisticas')
             ->with('ads_total', $ads_total)
-            ->with('chollos' $chollos);
+            ->with('chollos', $chollos)
+            ->with('alto', $alto)
+            ->with('correcto', $correcto);
 
     }
 }

@@ -1,13 +1,17 @@
 User- Roles
 
-Claudio Vallejo
+Claudio Valle
 
+https://medium.com/@cvallejo/autenticaci%C3%B3n-de-usuarios-y-roles-en-laravel-5-5-97ab59552d91
 __________________________
 
 Estadísticas
 
 	count(*)
 
+MUY INTERESANTE
+
+https://ajgallego.gitbooks.io/laravel-5/content/base_de_datos_query_builder.html
 __________________________
 
 API's
@@ -17,3 +21,4 @@ getCategorias
 getAnuncios
 
 getWebs
+

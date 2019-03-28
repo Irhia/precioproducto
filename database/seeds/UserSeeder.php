@@ -13,8 +13,11 @@ class UserSeeder extends Seeder
      */
     public function run()
     {
-        $role_user = Role::where('name', 'admin')->first();
-        //Creo 1 usaurio fijo y específico
+
+        //SUPERADMIN
+
+        $role_user = Role::where('name', 'superadmin')->first();
+        //Creo 1 usuario fijo y específico
         $user = User::create ([
         'name' => 'Bea',
         'email' => 'bhc@gmail.com',
@@ -24,8 +27,44 @@ class UserSeeder extends Seeder
         'remember_token' => Str::random(10),
 
         ]);
-
         $user->roles()->attach($role_user);
+
+        //ADMIN
+
+        $role_user = Role::where('name', 'admin')->first();
+        //Creo 1 usuario fijo y específico
+        $user3 = User::create ([
+        'name' => 'Irhia',
+        'email' => 'ir@gmail.com',
+        'email_verified_at' => now(),
+        // Encripta los 8 unos.
+        'password' => Hash::make ('11112222'), // password
+        'remember_token' => Str::random(10),
+
+        ]);
+
+        //Si tiene varios roles, 
+        //Primero se asigna el pirmer rol y luego el otro.    
+        $user3->roles()->attach($role_user);
+
+        $role_user_2 = Role::where('name', 'user')->first();
+        $user3->roles()->attach($role_user_2);
+
+
+        $role_user = Role::where('name', 'admin')->first();
+         //Creo 1 usuario fijo y específico
+        $user3 = User::create ([
+        'name' => 'Pepa',
+        'email' => 'pepa@gmail.com',
+        'email_verified_at' => now(),
+        // Encripta los 8 unos.
+        'password' => Hash::make ('11112222'), // password
+        'remember_token' => Str::random(10),
+
+        ]);
+
+        $user3->roles()->attach($role_user);
+
         
         $role_user = Role::where('name', 'user')->first();
         //Invento 5 usuarios a boleo

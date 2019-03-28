@@ -14,7 +14,13 @@
 <!-- Para incluir el contenido. 
   @yield ('content') se lo indicamos en master.blade.php -->
 @section('content')
+<ul>
+	
+		<li>Anuncios {{$ads_total}}</li>
+		<li>Chollos {{$chollos}}</li>
+		<li>Correcto {{$correcto}}</li>
+		<li>Excesivo {{$alto}}</li>
+</ul>
 
-El total de anuncios es: {{$ads_total}}
 
-El total de chollos es: {{$chollos}}
+@endsection
