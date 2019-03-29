@@ -59,5 +59,13 @@ class CategoryController extends Controller
     return redirect()->route('categorias.listar');
   } 
 
+  public function apiListar() {
+    try {
+      $categorias=Category::all();
+    } catch(\Error $ex) {
+      return response()->json(['error'=>$ex->getMessage()]);
+    }
+    return response()->json($categorias);
+  }
 
 }

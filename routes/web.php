@@ -38,16 +38,16 @@ Auth::routes();
 Route::group(['middleware' => 'auth'], function () {
 	Route::get('/home', 'HomeController@index')->name('home');
 
-	Route::get('categoria', 'CategoryController@listar') -> name('categorias.listar');
-	Route::post ('categoria', 'CategoryController@insertar') ->name ('categoria.insertar');
-	Route::get('categoria_eliminar/{id}', 'CategoryController@eliminar') -> name ('categorias.eliminar');
-	Route::get ('categoria_actualizar/{id}', 'CategoryController@actualizar') -> name ('categorias.actualizar');
+	Route::get('categoria', 'CategoryController@listar') -> name('categorias.listar')->middleware('auth', 'role:superadmin');
+	Route::post ('categoria', 'CategoryController@insertar') ->name ('categoria.insertar')->middleware('auth', 'role:superadmin');
+	Route::get('categoria_eliminar/{id}', 'CategoryController@eliminar') -> name ('categorias.eliminar')->middleware('auth', 'role:superadmin');
+	Route::get ('categoria_actualizar/{id}', 'CategoryController@actualizar') -> name ('categorias.actualizar')->middleware('auth', 'role:superadmin');
 
 
 	/* La versión que usábamos antes de aprender a hacer Route::resource. */
-	Route::get('web', 'WebController@listar')-> name('web.listar');
-	Route::post('web','WebController@insertar') ->name('web.insertar');
-	Route::get('web_eliminar/{id}','WebController@eliminar') ->name('web.eliminar');
+	Route::get('web', 'WebController@listar')-> name('web.listar')->middleware('auth', 'role:superadmin');
+	Route::post('web','WebController@insertar') ->name('web.insertar')->middleware('auth', 'role:superadmin');
+	Route::get('web_eliminar/{id}','WebController@eliminar') ->name('web.eliminar')->middleware('auth', 'role:superadmin');
 
 
 	Route::resource ('ads','AdController');

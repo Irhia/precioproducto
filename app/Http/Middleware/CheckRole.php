@@ -13,7 +13,7 @@ class CheckRole
      * @param  \Closure  $next
      * @return mixed
      */
-    public function handle($request, Closure $next)
+    public function handle($request, Closure $next, $role)
     {
         /*
 
@@ -26,7 +26,7 @@ class CheckRole
         */
 
         if(!$request->user()->hasRole($role)) {
-            return redirect('private.home');
+            return redirect('home');
         }
         return $next($request);
     }

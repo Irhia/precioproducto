@@ -22,7 +22,7 @@
       function drawChart() {
         var data = google.visualization.arrayToDataTable([
 
-          ['Anuncios', 'Mes'],
+          ['An', 'Mes'],
           ['Chollos',  {{$ads_total}}],
           ['Correcto', {{$correcto}}],
           ['Excesivo', {{$alto}}]
