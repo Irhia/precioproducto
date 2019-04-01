@@ -32,3 +32,21 @@ Apis resfull autentication:
 _____________
 https://medium.com/@cvallejo/sistema-de-autenticaci%C3%B3n-api-rest-con-laravel-5-6-240be1f3fc7d
 
+
+______________________________
+
+Log's
+
+Map's con coordenadas (típico que pones como un corchete/pincho en el mapa y te da las coordenadas)
+
+
+
+
+Instalados para registro de log
+
+https://styde.net/registro-de-errores-laravel-log-viewer/
+
+https://www.laraveltip.com/3-herramientas-fundamentales-para-log-en-laravel/
+
+
+Interesante: https://itsolutionstuff.com/post/custom-user-log-activity-in-laravel-5-app-exampleexample.html

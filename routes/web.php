@@ -18,6 +18,8 @@ Route::get('/', function () {
     return view('public.inicio');
 });
 
+//Para registro de log de errores
+Route::get('logs', '\Rap2hpoutre\LaravelLogViewer\LogViewerController@index');
 
 //Listar los anuncios.
 Route::get ('ads/listar', 'AdController@listar');

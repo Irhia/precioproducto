@@ -175,6 +175,10 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //Añadido por mí, para registro de log errores
+
+        Rap2hpoutre\LaravelLogViewer\LaravelLogViewerServiceProvider::class,
+
     ],
 
     /*
